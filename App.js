@@ -13,6 +13,8 @@ import { createStackNavigator } from "react-navigation-stack";
 // Components
 import Home from "./src/screens/Home";
 import Profile from "./src/screens/Profile";
+import Login from "./src/screens/Login";
+import Signup from "./src/screens/Signup";
 
 /**
  * createStackNavigator
@@ -22,12 +24,13 @@ import Profile from "./src/screens/Profile";
  */
 const Navigator = createStackNavigator(
     {
+        Signup: { screen: Signup },
+        Login: { screen: Login },
         Home: { screen: Home },
         Profile: { screen: Profile }
     },
     {
         defaultNavigationOptions: {
-            title: "Centered",
             headerTitleAlign: "center"
         }
     }
