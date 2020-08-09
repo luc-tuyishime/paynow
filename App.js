@@ -7,8 +7,11 @@
  */
 
 // Libs
+import React, {Component} from 'react'
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
+import { Provider } from 'react-redux'
+import store from './src/redux/store'
 
 // Components
 import Home from "./src/screens/Home";
@@ -30,9 +33,10 @@ const Navigator = createStackNavigator(
         Profile: { screen: Profile }
     },
     {
-        defaultNavigationOptions: {
-            headerTitleAlign: "center"
-        }
+      initialRouteName: 'Login',
+      defaultNavigationOptions: {
+        title: 'Pay Now'
+      }
     }
 );
 
@@ -43,6 +47,14 @@ const Navigator = createStackNavigator(
  * the top-level navigator to the app environment.
  *
  */
-const App = createAppContainer(Navigator);
+const AppDev = createAppContainer(Navigator);
 
-export default App;
+export default class App extends Component {
+    render() {
+      return (
+        <Provider store={store}>
+        <AppDev />
+      </Provider>
+      );
+    }
+  }
