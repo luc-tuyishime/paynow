@@ -1,3 +1,4 @@
 import login from './loginReducer';
+import profile from './profileReducer';
 
-export default {login};
+export default {login, profile};
