@@ -14,5 +14,4 @@ export default (formData) => (dispatch) =>
       onSuccess: loginActionsTypes.LOGIN_SUCCESS,
       onFailure: loginActionsTypes.LOGIN_FAILURE,
     }),
-    console.log('form here', formData),
   );

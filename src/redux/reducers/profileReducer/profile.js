@@ -1,29 +1,28 @@
-import {asyncStorage} from '../../../helpers'
-import { loginActionsTypes } from '../../actionsTypes';
+import { getProfile } from '../../actionsTypes';
 
 export default (state, { type, payload }) => {
-
+    console.log('payload reducer', payload);
+ 
   switch (type) {
-    case loginActionsTypes.LOGIN_START:
+    case getProfile.GET_PROFILE_START:
       return {
         ...state,
         message: '',
         loading: true,
         errors: {},
       };
-      case loginActionsTypes.LOGIN_END:
+      case getProfile.GET_PROFILE_END:
         return {
           ...state,
           loading: false,
         };
-        case loginActionsTypes.LOGIN_SUCCESS:
-         asyncStorage.storeData(payload)
+        case getProfile.GET_PROFILE_SUCCESS:
       return {
         ...state,
-        payload: JSON.stringify(payload),
+        payload,
         loading: false,
       };
-    case loginActionsTypes.LOGIN_FAILURE:
+    case getProfile.GET_PROFILE_FAILURE:
       return {
         ...state,
         loading: false,

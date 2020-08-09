@@ -14,7 +14,6 @@ class Login extends Component {
     const {loading, payload} = nextProps;
     const {navigation} = this.props;
     const user =  await asyncStorage.getData();
-    console.log('user', user.length);
     this.setState({loading, payload})
     return user.length !==0 && navigation.navigate('Home')
   }
