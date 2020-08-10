@@ -14,29 +14,36 @@ export default class Profile extends React.Component {
     };
 
     render() {
-        const { navigate, state:{params:{user}} } = this.props.navigation;
-    
-console.log('state here ==>>', user);
+        const {
+            navigate,
+            state: {
+                params: { user }
+            }
+        } = this.props.navigation;
+
+        console.log("state here ==>>", user);
         return (
             <View style={styles.container}>
                 <Image
                     style={styles.imgRounded}
                     source={{
-                        uri:user.photo
+                        uri: user.photo
                     }}
                 />
                 <View style={styles.address}>
                     <Text>
                         <Text style={styles.textStyle1}> Card No:</Text>{" "}
-                <Text style={styles.textStyle}>{user.id}</Text>
+                        <Text style={styles.textStyle}>{user.id}</Text>
                     </Text>
                     <Text>
                         <Text style={styles.textStyle1}> Names:</Text>{" "}
-                <Text style={styles.textStyle}>{user.firstname}{' '}{user.lastname }</Text>
+                        <Text style={styles.textStyle}>
+                            {user.firstname} {user.lastname}
+                        </Text>
                     </Text>
                     <Text>
                         <Text style={styles.textStyle1}> Dept: </Text>
-                <Text style={styles.textStyle}>{user.dept}</Text>
+                        <Text style={styles.textStyle}>{user.dept}</Text>
                     </Text>
                 </View>
                 <Button title="Go to home screen" onPress={() => navigate("Home")} />
