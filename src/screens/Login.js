@@ -15,7 +15,7 @@ class Login extends Component {
     const {navigation} = this.props;
     const user =  await asyncStorage.getData();
     this.setState({loading, payload})
-    return user.length !==0 && navigation.navigate('Home')
+    return user?.length !==0 && navigation.navigate('Home')
   }
   onChangeText =({text, name}) => {
     this.setState({[name]: text})
@@ -51,7 +51,7 @@ class Login extends Component {
                     style={styles.button}
                     onPress={this.onPress}
                   >
-                    <Text style={{fontWeight: 'bold', color: 'white', fontSize: 20}}>{loading && <ActivityIndicator color="white"/> || 'Login'}</Text>
+                 { loading && <ActivityIndicator color="white"/> ||   <Text style={{fontWeight: 'bold', color: 'white', fontSize: 20}}>Login</Text>}
                   </TouchableOpacity>
                 </View>
                </View>
